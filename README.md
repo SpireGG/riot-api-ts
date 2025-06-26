@@ -8,7 +8,7 @@
 
 ### Features
 
-- Rate limiting through [@fightmegg/riot-rate-limiter](https://github.com/fightmegg/riot-rate-limiter)
+- Rate limiting through [lp-riot-rate-limiter](https://github.com/fightmegg/riot-rate-limiter)
 - Automatic retries
 - TypeScript typings
 - 100% endpoint coverage (incl. DDragon)
@@ -18,13 +18,13 @@
 ## Installation
 
 ```shell
-$ npm install @fightmegg/riot-api
+$ npm install lp-riot-api
 ```
 
 ## Usage
 
 ```ts
-import { RiotAPI, RiotAPITypes, PlatformId } from "@fightmegg/riot-api";
+import { RiotAPI, RiotAPITypes, PlatformId } from "@spiregg/riot-api";
 
 (async () => {
   const rAPI = new RiotAPI("RGAPI-KEY");
@@ -82,7 +82,7 @@ const champs = await rAPI.ddragon.champion.all();
 If you want to just use static data only, then you can do the following:
 
 ```ts
-import { DDragon } from "@fightmegg/riot-api";
+import { DDragon } from "@spiregg/riot-api";
 
 const ddragon = new DDragon();
 const champs = await ddragon.champion.all();
@@ -95,7 +95,7 @@ Just like the main API, we have full TypeScript typings for DDragon endpoints. P
 A helper method to make it easier to determing which cluster you want to hit based on the users region
 
 ```ts
-import { regionToCluster } from "@fightmegg/riot-api";
+import { regionToCluster } from "@spiregg/riot-api";
 
 const cluster = regionToCluster("EUW1"); // outputs "EUROPE"
 ```
@@ -103,7 +103,7 @@ const cluster = regionToCluster("EUW1"); // outputs "EUROPE"
 ## TypeScript typing
 
 ```ts
-import { RiotAPI, RiotAPITypes, PlatformId } from '@fightmegg/riot-api';
+import { RiotAPI, RiotAPITypes, PlatformId } from '@spiregg/riot-api';
 
 // ...
 

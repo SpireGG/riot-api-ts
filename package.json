@@ -1,7 +1,7 @@
 {
-  "name": "@fightmegg/riot-api",
-  "version": "1.0.0",
-  "description": "Client for for interactacting with Riot Games API",
+  "name": "lp-riot-api",
+  "version": "2.0.0",
+  "description": "Client for for interacting with Riot Games API",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fightmegg/riot-api.git"
+    "url": "git+https://github.com/SpireGG/riot-api-ts.git"
   },
   "keywords": [
     "riot",
@@ -23,37 +23,39 @@
     "riot games",
     "league of legends"
   ],
-  "author": "Ollie Jennings <ollie@fightme.gg>",
+  "author": "Chypriote <chypriote@lolpros.gg>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fightmegg/riot-api/issues"
+    "url": "https://github.com/SpireGG/riot-api-ts/issues"
   },
-  "homepage": "https://github.com/fightmegg/riot-api#readme",
+  "homepage": "https://github.com/SpireGG/riot-api-ts#readme",
   "dependencies": {
-    "@fightmegg/riot-rate-limiter": "^0.0.22",
-    "debug": "^4.3.4",
-    "ioredis": "^5.4.1",
-    "node-fetch": "^2.6.1",
-    "path-to-regexp": "^6.2.2"
+    "lp-riot-rate-limiter": "^2.0.0",
+    "debug": "^4.4.1",
+    "ioredis": "^5.6.1",
+    "node-fetch": "^2.7.0",
+    "path-to-regexp": "^6.3.0"
   },
   "devDependencies": {
-    "@eslint/js": "^8.57.0",
+    "@eslint/js": "^8.57.1",
     "@types/debug": "^4.1.12",
-    "@types/jest": "^29.5.12",
-    "@types/node": "^20.12.12",
-    "@types/node-fetch": "^2.6.11",
+    "@types/ioredis-mock": "^8.2.6",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.19.1",
+    "@types/node-fetch": "^2.6.12",
     "bottleneck": "^2.19.5",
-    "eslint": "^8.57.0",
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-prettier": "^5.5.1",
     "ioredis-mock": "^8.9.0",
     "jest": "^29.7.0",
     "jest-extended": "^4.0.2",
     "jest-junit": "^16.0.0",
-    "prettier": "^3.2.5",
-    "ts-jest": "^29.1.2",
+    "prettier": "^3.6.1",
+    "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.4.5",
-    "typescript-eslint": "^7.9.0"
-  }
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^7.18.0"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

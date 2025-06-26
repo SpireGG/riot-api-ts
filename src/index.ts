@@ -3,7 +3,7 @@ import {
   METHODS,
   PlatformId,
   RiotRateLimiter,
-} from "@fightmegg/riot-rate-limiter";
+} from "lp-riot-rate-limiter";
 import Bottleneck from "bottleneck";
 import debug from "debug";
 import { RedisOptions } from "ioredis";
@@ -217,41 +217,41 @@ export class RiotAPI {
     return {
       getAllChampions: ({
         region,
-        summonerId,
+        puuid,
       }: {
         region: RiotAPITypes.LoLRegion;
-        summonerId: string;
+        puuid: string;
       }): Promise<RiotAPITypes.ChampionMastery.ChampionMasteryDTO[]> =>
         this.request(
           region,
           RiotAPITypes.METHOD_KEY.CHAMPION_MASTERY.GET_ALL_CHAMPIONS,
-          { summonerId },
-          { id: `${region}.championMastery.getAllChampions.${summonerId}` }
+          { puuid },
+          { id: `${region}.championMastery.getAllChampions.${puuid}` }
         ),
       getChampion: ({
         region,
         championId,
-        summonerId,
+        puuid,
       }: {
         region: RiotAPITypes.LoLRegion;
         championId: number;
-        summonerId: string;
+        puuid: string;
       }): Promise<RiotAPITypes.ChampionMastery.ChampionMasteryDTO> =>
         this.request(
           region,
           RiotAPITypes.METHOD_KEY.CHAMPION_MASTERY.GET_CHAMPION_MASTERY,
-          { championId, summonerId },
+          { championId, puuid },
           {
-            id: `${region}.championMastery.getChampion.${championId}.${summonerId}`,
+            id: `${region}.championMastery.getChampion.${championId}.${puuid}`,
           }
         ),
       getTopChampions: ({
         region,
-        summonerId,
+        puuid,
         params,
       }: {
         region: RiotAPITypes.LoLRegion;
-        summonerId: string;
+        puuid: string;
         params?: {
           count?: number;
         };
@@ -259,24 +259,24 @@ export class RiotAPI {
         this.request(
           region,
           RiotAPITypes.METHOD_KEY.CHAMPION_MASTERY.GET_TOP_CHAMPIONS,
-          { summonerId },
+          { puuid },
           {
-            id: `${region}.championMastery.getTopChampions.${summonerId}`,
+            id: `${region}.championMastery.getTopChampions.${puuid}`,
             params,
           }
         ),
       getMasteryScore: ({
         region,
-        summonerId,
+        puuid,
       }: {
         region: RiotAPITypes.LoLRegion;
-        summonerId: string;
+        puuid: string;
       }): Promise<number> =>
         this.request(
           region,
           RiotAPITypes.METHOD_KEY.CHAMPION_MASTERY.GET_CHAMPION_MASTERY_SCORE,
-          { summonerId },
-          { id: `${region}.championMastery.getMasteryScore.${summonerId}` }
+          { puuid },
+          { id: `${region}.championMastery.getMasteryScore.${puuid}` }
         ),
     };
   }
@@ -299,18 +299,18 @@ export class RiotAPI {
 
   get clash() {
     return {
-      getPlayersBySummonerId: ({
+      getPlayersByPUUID: ({
         region,
-        summonerId,
+        puuid,
       }: {
         region: RiotAPITypes.LoLRegion;
-        summonerId: string;
+        puuid: string;
       }): Promise<RiotAPITypes.Clash.PlayerDTO[]> =>
         this.request(
           region,
-          RiotAPITypes.METHOD_KEY.CLASH.GET_PLAYERS_BY_SUMMONER,
-          { summonerId },
-          { id: `${region}.clash.getPlayersBySummonerId.${summonerId}` }
+          RiotAPITypes.METHOD_KEY.CLASH.GET_PLAYERS_BY_PUUID,
+          { puuid },
+          { id: `${region}.clash.getPlayersByPUUID.${puuid}` }
         ),
       getTeamById: ({
         region,
@@ -406,19 +406,19 @@ export class RiotAPI {
             id: `${region}.league.getChallengerByQueue.${queue}`,
           }
         ),
-      getEntriesBySummonerId: ({
+      getEntriesByPUUID: ({
         region,
-        summonerId,
+        puuid,
       }: {
         region: RiotAPITypes.LoLRegion;
-        summonerId: string;
+        puuid: string;
       }): Promise<RiotAPITypes.League.LeagueEntryDTO[]> =>
         this.request(
           region,
-          RiotAPITypes.METHOD_KEY.LEAGUE.GET_ENTRIES_BY_SUMMONER,
-          { summonerId },
+          RiotAPITypes.METHOD_KEY.LEAGUE.GET_ENTRIES_BY_PUUID,
+          { puuid },
           {
-            id: `${region}.league.getEntriesBySummonerId.${summonerId}`,
+            id: `${region}.league.getEntriesByPUUID.${puuid}`,
           }
         ),
       getAllEntries: ({
@@ -783,18 +783,18 @@ export class RiotAPI {
 
   get spectator() {
     return {
-      getBySummonerId: ({
+      getByPUUID: ({
         region,
-        summonerId,
+        puuid,
       }: {
         region: RiotAPITypes.LoLRegion;
-        summonerId: string;
+        puuid: string;
       }): Promise<RiotAPITypes.Spectator.CurrentGameInfoDTO> =>
         this.request(
           region,
-          RiotAPITypes.METHOD_KEY.SPECTATOR.GET_GAME_BY_SUMMONER_ID,
-          { summonerId },
-          { id: `${region}.spectator.getBySummonerId.${summonerId}` }
+          RiotAPITypes.METHOD_KEY.SPECTATOR.GET_GAME_BY_PUUID,
+          { puuid },
+          { id: `${region}.spectator.getByPUUID.${puuid}` }
         ),
       getFeaturedGames: ({
         region,
@@ -825,19 +825,6 @@ export class RiotAPI {
           { rsoPuuid },
           { id: `${region}.summoner.getByRsoPUUID.${rsoPuuid}` }
         ),
-      getByAccountId: ({
-        region,
-        accountId,
-      }: {
-        region: RiotAPITypes.LoLRegion;
-        accountId: string;
-      }): Promise<RiotAPITypes.Summoner.SummonerDTO> =>
-        this.request(
-          region,
-          RiotAPITypes.METHOD_KEY.SUMMONER.GET_BY_ACCOUNT_ID,
-          { accountId },
-          { id: `${region}.summoner.getByAccountId.${accountId}` }
-        ),
       getByPUUID: ({
         region,
         puuid,
@@ -850,19 +837,6 @@ export class RiotAPI {
           RiotAPITypes.METHOD_KEY.SUMMONER.GET_BY_PUUID,
           { puuid },
           { id: `${region}.summoner.getByPUUID.${puuid}` }
-        ),
-      getBySummonerId: ({
-        region,
-        summonerId,
-      }: {
-        region: RiotAPITypes.LoLRegion;
-        summonerId: string;
-      }): Promise<RiotAPITypes.Summoner.SummonerDTO> =>
-        this.request(
-          region,
-          RiotAPITypes.METHOD_KEY.SUMMONER.GET_BY_SUMMONER_ID,
-          { summonerId },
-          { id: `${region}.summoner.getBySummonerId.${summonerId}` }
         ),
       getByAccessToken: ({
         region,
@@ -896,18 +870,18 @@ export class RiotAPI {
           {},
           { id: `${region}.tftLeague.getChallenger` }
         ),
-      getEntriesBySummonerId: ({
+      getEntriesByPUUID: ({
         region,
-        summonerId,
+        puuid,
       }: {
         region: RiotAPITypes.LoLRegion;
-        summonerId: string;
+        puuid: string;
       }): Promise<RiotAPITypes.TftLeague.LeagueEntryDTO[]> =>
         this.request(
           region,
-          RiotAPITypes.METHOD_KEY.TFT_LEAGUE.GET_ENTRIES_BY_SUMMONER,
-          { summonerId },
-          { id: `${region}.tftLeague.getEntriesBySummonerId.${summonerId}` }
+          RiotAPITypes.METHOD_KEY.TFT_LEAGUE.GET_ENTRIES_BY_PUUID,
+          { puuid },
+          { id: `${region}.tftLeague.getEntriesByPUUID.${puuid}` }
         ),
       getAllEntries: ({
         region,
@@ -1022,19 +996,6 @@ export class RiotAPI {
 
   get tftSummoner() {
     return {
-      getByAccountId: ({
-        region,
-        accountId,
-      }: {
-        region: RiotAPITypes.LoLRegion;
-        accountId: string;
-      }): Promise<RiotAPITypes.Summoner.SummonerDTO> =>
-        this.request(
-          region,
-          RiotAPITypes.METHOD_KEY.TFT_SUMMONER.GET_BY_ACCOUNT_ID,
-          { accountId },
-          { id: `${region}.tftSummoner.getByAccountId.${accountId}` }
-        ),
       getByAccessToken: ({
         region,
         accessToken,
@@ -1063,19 +1024,6 @@ export class RiotAPI {
           RiotAPITypes.METHOD_KEY.TFT_SUMMONER.GET_BY_PUUID,
           { puuid },
           { id: `${region}.tftSummoner.getByPUUID.${puuid}` }
-        ),
-      getBySummonerId: ({
-        region,
-        summonerId,
-      }: {
-        region: RiotAPITypes.LoLRegion;
-        summonerId: string;
-      }): Promise<RiotAPITypes.Summoner.SummonerDTO> =>
-        this.request(
-          region,
-          RiotAPITypes.METHOD_KEY.TFT_SUMMONER.GET_BY_SUMMONER_ID,
-          { summonerId },
-          { id: `${region}.tftSummoner.getBySummonerId.${summonerId}` }
         ),
     };
   }

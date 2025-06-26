@@ -1,7 +1,7 @@
 import "jest-extended";
 import { PlatformId, RiotAPI } from "../../src/index";
 
-jest.unmock("@fightmegg/riot-rate-limiter");
+jest.unmock("lp-riot-rate-limiter");
 
 const riotAPIKey = process.env.X_RIOT_API_KEY || "";
 const puuid = process.env.PUUID || "";

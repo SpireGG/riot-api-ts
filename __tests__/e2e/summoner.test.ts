@@ -1,4 +1,4 @@
-jest.unmock("@fightmegg/riot-rate-limiter");
+jest.unmock("lp-riot-rate-limiter");
 
 import "jest-extended";
 import { PlatformId, RiotAPI } from "../../src/index";
@@ -17,8 +17,6 @@ describe("E2E", () => {
       });
       expect(resp.puuid).toEqual(puuid);
       expect(resp).toContainAllKeys([
-        "id",
-        "accountId",
         "puuid",
         "profileIconId",
         "revisionDate",

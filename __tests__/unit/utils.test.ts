@@ -1,4 +1,4 @@
-import { PlatformId } from "@fightmegg/riot-rate-limiter";
+import { PlatformId } from "lp-riot-rate-limiter";
 import { regionToCluster } from "../../src/utils";
 
 describe("utils", () => {

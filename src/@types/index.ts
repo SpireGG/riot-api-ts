@@ -1,4 +1,4 @@
-import { PlatformId } from "@fightmegg/riot-rate-limiter";
+import { PlatformId } from "lp-riot-rate-limiter";
 import { RedisOptions } from "ioredis";
 
 export type Leaves<T> = T extends object
@@ -144,7 +144,7 @@ export namespace RiotAPITypes {
       export const GET_CHAMPION_ROTATIONS = "CHAMPION.GET_CHAMPION_ROTATIONS";
     }
     export namespace CLASH {
-      export const GET_PLAYERS_BY_SUMMONER = "CLASH.GET_PLAYERS_BY_SUMMONER";
+      export const GET_PLAYERS_BY_PUUID = "CLASH.GET_PLAYERS_BY_PUUID";
       export const GET_TEAM = "CLASH.GET_TEAM";
       export const GET_TOURNAMENTS = "CLASH.GET_TOURNAMENTS";
       export const GET_TOURNAMENT = "CLASH.GET_TOURNAMENT";
@@ -155,7 +155,7 @@ export namespace RiotAPITypes {
     }
     export namespace LEAGUE {
       export const GET_CHALLENGER_BY_QUEUE = "LEAGUE.GET_CHALLENGER_BY_QUEUE";
-      export const GET_ENTRIES_BY_SUMMONER = "LEAGUE.GET_ENTRIES_BY_SUMMONER";
+      export const GET_ENTRIES_BY_PUUID = "LEAGUE.GET_ENTRIES_BY_PUUID";
       export const GET_ALL_ENTRIES = "LEAGUE.GET_ALL_ENTRIES";
       export const GET_GRANDMASTER_BY_QUEUE = "LEAGUE.GET_GRANDMASTER_BY_QUEUE";
       export const GET_LEAGUE_BY_ID = "LEAGUE.GET_LEAGUE_BY_ID";
@@ -214,21 +214,19 @@ export namespace RiotAPITypes {
     }
 
     export namespace SPECTATOR {
-      export const GET_GAME_BY_SUMMONER_ID =
-        "SPECTATOR.GET_GAME_BY_SUMMONER_ID";
+      export const GET_GAME_BY_PUUID =
+        "SPECTATOR.GET_GAME_BY_PUUID";
       export const GET_FEATURED_GAMES = "SPECTATOR.GET_FEATURED_GAMES";
     }
     export namespace SUMMONER {
       export const GET_BY_RSO_PUUID = "SUMMONER.GET_BY_RSO_PUUID";
-      export const GET_BY_ACCOUNT_ID = "SUMMONER.GET_BY_ACCOUNT_ID";
       export const GET_BY_PUUID = "SUMMONER.GET_BY_PUUID";
-      export const GET_BY_SUMMONER_ID = "SUMMONER.GET_BY_SUMMONER_ID";
       export const GET_BY_ACCESS_TOKEN = "SUMMONER.GET_BY_ACCESS_TOKEN";
     }
     export namespace TFT_LEAGUE {
       export const GET_CHALLENGER = "TFT_LEAGUE.GET_CHALLENGER";
-      export const GET_ENTRIES_BY_SUMMONER =
-        "TFT_LEAGUE.GET_ENTRIES_BY_SUMMONER";
+      export const GET_ENTRIES_BY_PUUID =
+        "TFT_LEAGUE.GET_ENTRIES_BY_PUUID";
       export const GET_ALL_ENTRIES = "TFT_LEAGUE.GET_ALL_ENTRIES";
       export const GET_GRANDMASTER = "TFT_LEAGUE.GET_GRANDMASTER";
       export const GET_LEAGUE_BY_ID = "TFT_LEAGUE.GET_LEAGUE_BY_ID";
@@ -246,10 +244,8 @@ export namespace RiotAPITypes {
     }
 
     export namespace TFT_SUMMONER {
-      export const GET_BY_ACCOUNT_ID = "TFT_SUMMONER.GET_BY_ACCOUNT_ID";
       export const GET_BY_ACCESS_TOKEN = "TFT_SUMMONER.GET_BY_ACCESS_TOKEN";
       export const GET_BY_PUUID = "TFT_SUMMONER.GET_BY_PUUID";
-      export const GET_BY_SUMMONER_ID = "TFT_SUMMONER.GET_BY_SUMMONER_ID";
     }
 
     export namespace TOURNAMENT_STUB_V5 {
@@ -319,7 +315,7 @@ export namespace RiotAPITypes {
       championId: number;
       lastPlayTime: number;
       championLevel: number;
-      summonerId: string;
+      puuid: string;
       championPoints: number;
       championPointsSinceLastLevel: number;
       tokensEarned: number;
@@ -336,7 +332,7 @@ export namespace RiotAPITypes {
 
   export namespace Clash {
     export interface PlayerDTO {
-      summonerId: string;
+      puuid: string;
       teamId: string;
       position:
         | "UNSELECTED"
@@ -386,7 +382,7 @@ export namespace RiotAPITypes {
 
     export interface LeagueEntryDTO {
       leagueId: string;
-      summonerId: string;
+      puuid: string;
       queueType: string;
       tier: string;
       rank: string;
@@ -410,7 +406,7 @@ export namespace RiotAPITypes {
       rank: string;
       leaguePoints: number;
       losses: number;
-      summonerId: string;
+      puuid: string;
     }
 
     export interface LeagueListDTO {
@@ -1212,8 +1208,6 @@ export namespace RiotAPITypes {
       puuid: string;
       summonerLevel: number;
       revisionDate: number;
-      id: string;
-      accountId: string;
     }
   }
 

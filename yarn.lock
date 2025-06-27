@@ -2440,7 +2440,7 @@ lodash.merge@^4.6.2:
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
   integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
-lp-riot-rate-limiter@^2.0.0:
+lp-riot-rate-limiter@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/lp-riot-rate-limiter/-/lp-riot-rate-limiter-2.0.1.tgz#8b4c2d6281b151915a61d910906e610c0875c170"
   integrity sha512-ctnucTHVz9HKiUqj5VeEmHg/yhgcQEdR8APyAQoOWHVw67BV9iVrw3WCCBUzs3FBZSVP4myE9yFPD39frcJ2wQ==

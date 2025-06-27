@@ -1,6 +1,6 @@
 {
   "name": "lp-riot-api",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Client for for interacting with Riot Games API",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -32,7 +32,7 @@
   "dependencies": {
     "debug": "^4.4.1",
     "ioredis": "^5.6.1",
-    "lp-riot-rate-limiter": "^2.0.0",
+    "lp-riot-rate-limiter": "^2.0.1",
     "node-fetch": "^2.7.0",
     "path-to-regexp": "^6.3.0"
   },
